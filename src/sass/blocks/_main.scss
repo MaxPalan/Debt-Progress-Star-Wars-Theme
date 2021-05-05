@@ -63,6 +63,7 @@
     margin-top: 20px;
     position: relative;
     &-title {
+      margin-left: 13px;
       font-size: 25px;
       font-family: Star Jedi;
       text-shadow: 0 0 13px white;
@@ -76,7 +77,32 @@
       transform: rotate(25.5deg);
       z-index: 0;
     }
+    &-black {
+      width: 310px;
+      height: 7px;
+      background-color: black;
+      box-shadow: 0 0 20px 20px black;
+      position: absolute;
+      z-index: 1;
+      top: 69px;
+      left: 53px;
+      border-radius: 25%;
+    }
+    &-blue {
+      display: none;
+      width: 310px;
+      height: 7px;
+      background-color: white;
+      position: absolute;
+      z-index: 2;
+      top: 69px;
+      left: 53px;
+      border-radius: 25%;
+      border-left: none;
+      animation-direction: reverse;
+    }
     &-scale {
+      display: none;
       position: absolute;
       left: 54px;
       top: 69px;

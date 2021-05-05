@@ -55,6 +55,12 @@ gulp.task('fonts', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('audio', function () {
+  return gulp.src("src/audio/**/*")
+      .pipe(gulp.dest("dist/audio"))
+      .pipe(browserSync.stream());
+});
+
 gulp.task('icons', function () {
     return gulp.src("src/icons/**/*")
         .pipe(gulp.dest("dist/icons"))
@@ -68,4 +74,4 @@ gulp.task('images', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'audio', 'icons', 'html', 'images'));
