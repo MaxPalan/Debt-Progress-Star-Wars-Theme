@@ -1,0 +1,15 @@
+@keyframes textshadow {
+  from {text-shadow: 0 0 2px white;}
+  50% {text-shadow: 0 0 13px white;}
+  to {text-shadow: 0 0 2px white;}
+}
+@keyframes boxshadow {
+  from {box-shadow: 0 0 2px white;}
+  50% {box-shadow: 0 0 13px white;}
+  to {box-shadow: 0 0 2px white;}
+}
+@keyframes textcolor {
+  from {color: rgb(255, 47, 47);}
+  50% {color: white;}
+  to {color: rgb(255, 47, 47);}
+}

@@ -1,0 +1,89 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/vader.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  &__header {
+    font-family: Star Jedi;
+    letter-spacing: 1px;
+    font-size: 40px;
+    margin-left: 10%;
+    animation: textshadow  2s infinite ease-in-out;
+  }
+  &__enter {
+    margin-left: 9.5%;
+    display: flex;
+    &-inp {
+      border-radius: 5px;
+      background-color: black;
+      outline: none;
+      padding: 5px 7px 10px 7px;
+      font-size: 20px;
+      font-family: Star Jedi;
+      color: white;
+      border: none;
+      animation: boxshadow 2s infinite ease-in-out;
+      width: 150px;
+      z-index: 1;
+      &:focus {
+        animation: none;
+        box-shadow: 0 0 13px white;
+      }
+    }
+    &-btn {
+      margin-left: 5px;
+      border-radius: 5px;
+      background-color: black;
+      outline: none;
+      border: none;
+      padding: 5px 7px 10px 7px;
+      animation: boxshadow 2s infinite ease-in-out;
+      z-index: 1;
+      &:hover {
+        color: rgb(255, 47, 47);
+        animation: none;
+        box-shadow: 0 0 13px white;
+      }
+      span {
+        font-family: Star Jedi;
+        font-size: 20px;
+        color: white;
+        animation: textcolor 2s infinite ease-in-out;
+        &:hover {
+          color: rgb(255, 47, 47);
+          animation: none;
+        }
+      }
+    }
+  }
+  &__progress {
+    margin-left: 13.5%;
+    margin-top: 20px;
+    position: relative;
+    &-title {
+      font-size: 25px;
+      font-family: Star Jedi;
+      text-shadow: 0 0 13px white;
+    }
+    &-img {
+      position: absolute;
+      top: -30px;
+      left: -20px;
+      width: 400px;
+      height: 200px;
+      transform: rotate(25.5deg);
+      z-index: 0;
+    }
+    &-scale {
+      position: absolute;
+      left: 54px;
+      top: 69px;
+      box-shadow: 0 0 20px 15px red;
+      width: 1px;
+      height: 7px;
+      border-radius: 25%;
+    }
+  }
+}

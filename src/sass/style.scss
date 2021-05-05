@@ -1,0 +1,11 @@
+@import 'libs/bootstrap-reboot.min';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import 'base/fonts';
+@import 'base/animation';
+
+@import 'blocks/main';
