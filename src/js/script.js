@@ -6,23 +6,77 @@ const passInput = document.querySelector('.main__enter-inp');
 const passBtn = document.querySelector('.main__enter-btn');
 
 const blueSaber = document.querySelector('.main__progress-blue');
+const redSaber = document.querySelector('.main__progress-scale');
+
+const laser = document.querySelector('.main__laser');
+const laserTarget = document.querySelector('.laser__target');
+
+const menu = document.querySelector('.main__menu');
+const createMenu = '<ul class="main__menu-list"><li class="main__menu-item"><button class="progress__button">Show Progress</button></li><li class="main__menu-item"><button>Payments List</button></li></ul>'
 
 passBtn.addEventListener('click', startAnimationAndAudio);
 function startAnimationAndAudio(event) {                        //saber animation and sound + input validation
   event.preventDefault();
-  if (passInput.value === password) {
+  if (passInput.value === password && document.readyState === 'complete') {
     passInput.value = '';
-    const saberOn = new Audio('audio/lightsaberOn.mp3');        //saber sound for turning on
-    saberOn.autoplay = true;
+    passInput.placeholder = '';
+
+    const saberOn = new Audio('audio/lightsaberOn.wav');        //saber sound for turning on
+    saberOn.play();
+
     setTimeout(function() {                                     //blue saber animation start
       blueSaber.style.display = 'block';
-      blueSaber.style.animation = 'swordon 1.5s ease-in-out, blueSaberBlink 0.1s infinite ease-in-out';
+      blueSaber.style.animation = 'swordon 0.9s ease, blueSaberBlink 0.05s infinite ease';
     }, 600)
-    const saberWorking = new Audio('audio/lightsaberWork.mp3'); //sound of saber work
+
+    const saberWorking = new Audio('audio/lightsaberWork.wav'); //sound of saber work
     setTimeout(function() {
       saberWorking.play();
       saberWorking.loop = true;
     }, 1000)
+
+    menu.innerHTML = createMenu;                                //menu creation
+    
+    const showProgress = document.querySelector('.progress__button');//progress animation and sound
+    showProgress.addEventListener('click', progressAnimation);
+    const laserShot = new Audio('audio/laserShot.wav');
+    
+    function progressAnimation() {
+      laserTarget.addEventListener('click', targetLocated);
+      // laserTarget.addEventListener('click', shotAnimation);
+      laserTarget.click();
+
+      function targetLocated() {
+        laser.animate([
+          { top: '105vh', left: '101vw' },
+          { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
+        ], {
+          duration: 250,
+          iterations: 1
+        })
+      
+        laserShot.play();
+        laserTarget.style.animation = 'target 0.2s ease 0.2s';
+        setTimeout(function() {
+          redSaber.style.display = 'block';
+          redSaber.style.animation = 'createMenu 1s ease, redSaberBlink 0.05s infinite ease';
+        }, 500)
+      }
+      setTimeout(function shotAnimation() {
+        laserTarget.style.animation = '';
+        laser.animate([
+          { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x}px` },
+          { top: '105vh', left: '-1vw' }
+        ], {
+          duration: 150,
+          iterations: 1
+        });
+        laser.style.transform = 'rotate(-25deg)';
+        setTimeout(function() {
+          laser.style.transform = 'rotate(25deg)';
+        }, 301)
+      }, 300)
+    }
   }
   else {
     passInput.value = '';                                       //input validation

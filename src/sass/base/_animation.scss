@@ -21,7 +21,24 @@
   to {width: 310px;}
 }
 @keyframes blueSaberBlink {
-  from {box-shadow: 0 0 18px 15px rgb(52, 52, 255);}
-  50% {box-shadow: 0 0 20px 17px rgb(52, 52, 255);}
-  to {box-shadow: 0 0 18px 15px rgb(52, 52, 255);}
+  from {box-shadow: 0 0 16px 13px rgb(72, 72, 255);}
+  50% {box-shadow: 0 0 19px 16px rgb(52, 52, 255);}
+  to {box-shadow: 0 0 16px 13px rgb(72, 72, 255);}
+}
+@keyframes redSaberBlink {
+  from {box-shadow: 0 0 14px 14px  red;}
+  50% {box-shadow: 0 0 19px 19px  red;}
+  to {box-shadow: 0 0 14px 14px  red;}
+}
+
+//menu create animation
+@keyframes createMenu {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+//target animation
+@keyframes target {
+  from {box-shadow: 50px 0 0px 10px red;}
+  to {box-shadow: 50px 0 20px 35px red;}
 }

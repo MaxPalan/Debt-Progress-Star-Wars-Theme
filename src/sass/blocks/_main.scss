@@ -1,20 +1,24 @@
 .main {
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   background-image: url(../img/vader.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  position: relative;
   &__header {
+    width: 50vw;
     font-family: Star Jedi;
     letter-spacing: 1px;
     font-size: 40px;
-    margin-left: 10%;
+    text-align: center;
     animation: textshadow  2s infinite ease-in-out;
   }
   &__enter {
-    margin-left: 9.5%;
+    width: 50vw;
     display: flex;
+    justify-content: center;
     &-inp {
       border-radius: 5px;
       background-color: black;
@@ -58,12 +62,14 @@
       }
     }
   }
+
   &__progress {
-    margin-left: 13.5%;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
     position: relative;
     &-title {
-      margin-left: 13px;
       font-size: 25px;
       font-family: Star Jedi;
       text-shadow: 0 0 13px white;
@@ -71,7 +77,7 @@
     &-img {
       position: absolute;
       top: -30px;
-      left: -20px;
+      left: 175px;
       width: 400px;
       height: 200px;
       transform: rotate(25.5deg);
@@ -85,8 +91,20 @@
       position: absolute;
       z-index: 1;
       top: 69px;
-      left: 53px;
+      left: 248px;
       border-radius: 25%;
+      .laser__target {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        left: 15px;
+        top: 2px;
+        outline: none;
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 50%;
+        z-index: 10;
+      }
     }
     &-blue {
       display: none;
@@ -96,7 +114,7 @@
       position: absolute;
       z-index: 2;
       top: 69px;
-      left: 53px;
+      left: 248px;
       border-radius: 25%;
       border-left: none;
       animation-direction: reverse;
@@ -104,12 +122,60 @@
     &-scale {
       display: none;
       position: absolute;
-      left: 54px;
+      left: 248px;
       top: 69px;
-      box-shadow: 0 0 20px 15px red;
       width: 1px;
       height: 7px;
       border-radius: 25%;
+      z-index: 4;
     }
+  }
+
+  &__menu {
+    position: relative;
+    width: 50vw;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    &-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &-item {
+      padding: 7px;
+      button {
+        animation: createMenu 3s ease;
+        font-family: Star Jedi;
+        color: white;
+        margin-left: 5px;
+        border-radius: 5px;
+        background-color: black;
+        outline: none;
+        border: none;
+        padding: 5px 7px 10px 7px;
+        z-index: 1;
+        box-shadow: 0 0 3px white;
+        transition: 0.5s;
+        &:hover{
+          color: rgb(255, 47, 47);
+          box-shadow: 0 0 13px white;
+        }
+      }
+    }
+  }
+
+  &__laser {
+    height: 5px;
+    width: 60px;
+    background-color: rgb(255, 187, 187);
+    border-radius: 25%;
+    box-shadow: 0 0 10px 5px rgb(255, 47, 47);
+    position: absolute;
+    top: 105vh;
+    left: 101vw;
+    transform: rotate(25deg);
+    z-index: 5;
   }
 }
