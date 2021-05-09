@@ -111,3 +111,10 @@ axios.get(apiUrl).then((res) => {
     inpUsd2.value = (inpUah2.value / usd).toFixed(2);
   }
 });
+
+//calculations
+const debtPercent = 15;
+const firstPayment = (200 / 27.75).toFixed(2);
+const firstCoef = (debtPercent / firstPayment).toFixed(2);
+const scaleWidth =  (3.1 / firstCoef).toFixed(2);
+redSaber.style.width = `${scaleWidth}px`;
