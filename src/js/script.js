@@ -43,10 +43,9 @@ function startAnimationAndAudio(event) {                        //saber animatio
     
     function progressAnimation() {
       laserTarget.addEventListener('click', targetLocated);
-      // laserTarget.addEventListener('click', shotAnimation);
       laserTarget.click();
 
-      function targetLocated() {
+      function targetLocated() {                                    //laser shot animation
         laser.animate([
           { top: '105vh', left: '101vw' },
           { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
@@ -66,7 +65,7 @@ function startAnimationAndAudio(event) {                        //saber animatio
         laserTarget.style.animation = '';
         laser.animate([
           { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x}px` },
-          { top: '105vh', left: '-1vw' }
+          { top: '55vh', left: '-1vw' }
         ], {
           duration: 150,
           iterations: 1
@@ -85,29 +84,30 @@ function startAnimationAndAudio(event) {                        //saber animatio
 }
 
 //exchange section
+const exchangeForm = document.querySelector('.main__exchange');
 
-class ExchangeModel {
-  constructor() {
-    this.exchange = [];
-    this.apiUrl = 'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11'
-  }
-  getExchangde() {
-    axios.get(this.apiUrl).then((res) => {
-      this.exchange = res.data;
-      console.log(this.exchange);
-    });
-  }
-}
+const inpUsd = document.querySelector('#usd');
+const inpUah = document.querySelector('#uah');
+const inpUsd2 = document.querySelector('#usd2');
+const inpUah2 = document.querySelector('#uah2');
 
-class ExchangeController {
-  constructor() {
-    this.model = new ExchangeModel();
-    this.init();
-  }
+let exchange = [];
+const apiUrl = 'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11'
+axios.get(apiUrl).then((res) => {
+  exchange = res.data;
+  const usd = exchange.find((x) => {return x.ccy === 'USD'}).buy;
 
-  init() {
-    this.model.getExchangde();
-  }
-}
+  inpUsd.placeholder = 1;
+  inpUah.placeholder = usd;
+  inpUah2.placeholder = 1;
+  inpUsd2.placeholder = 1 / usd;
 
-const exchangeController = new ExchangeController();
+  inpUsd.addEventListener('input', calcUah);
+  function calcUah() {
+    inpUah.value = (inpUsd.value * usd).toFixed(2);
+  }
+  inpUah2.addEventListener('input', calcUsd);
+  function calcUsd() {
+    inpUsd2.value = (inpUah2.value / usd).toFixed(2);
+  }
+});

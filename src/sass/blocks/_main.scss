@@ -14,6 +14,7 @@
     font-size: 40px;
     text-align: center;
     animation: textshadow  2s infinite ease-in-out;
+    color: black;
   }
   &__enter {
     width: 50vw;
@@ -70,6 +71,7 @@
     margin-top: 20px;
     position: relative;
     &-title {
+      color: black;
       font-size: 25px;
       font-family: Star Jedi;
       text-shadow: 0 0 13px white;
@@ -177,5 +179,36 @@
     left: 101vw;
     transform: rotate(25deg);
     z-index: 5;
+  }
+
+  &__exchange {
+    position: absolute;
+    bottom: 50px;
+    left: 175px;
+    display: grid;
+    grid-template: 1fr 1fr  / 60px 1fr 60px 1fr;
+    row-gap: 5px;
+    label {
+      font-family: Star Jedi;
+      color: black;
+      font-size: 20px;
+      text-shadow: 0 0 4px white;
+    }
+    input {
+      width: 86px;
+      border-radius: 5px;
+      background-color: black;
+      outline: none;
+      padding: 1px 0px 5px 4px;
+      font-size: 20px;
+      font-family: Star Jedi;
+      color: white;
+      border: none;
+      box-shadow: 0 0 4px white;
+      letter-spacing: 2px;
+    }
+    #usd, #uah2 {
+      margin-right: 30px;
+    }
   }
 }
