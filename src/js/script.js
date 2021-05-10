@@ -1,12 +1,36 @@
-// password section
+//calculations and scale width
+const redSaber = document.querySelector('.main__progress-scale');
 
+const regularData = {
+  debtPercent: 15,
+  widhPercent: 3.1,
+}
+
+const payments = [
+  {
+    name: 'first',
+    payment() { return (200 / 27.75).toFixed(2) },
+    coef() { return (regularData.debtPercent / this.payment()).toFixed(2) },
+    width() { return (regularData.widhPercent / this.coef()).toFixed(2) }
+  },
+]
+
+let scaleWidth = [];
+payments.forEach((p) => { scaleWidth.push( Number(p.width()) ) });
+
+const scale = scaleWidth.reduce((acc, curr) => {
+  return acc + curr;
+});
+
+redSaber.style.width = `${scale}px`;
+
+// password section
 const password = '123';
 
 const passInput = document.querySelector('.main__enter-inp');
 const passBtn = document.querySelector('.main__enter-btn');
 
 const blueSaber = document.querySelector('.main__progress-blue');
-const redSaber = document.querySelector('.main__progress-scale');
 
 const laser = document.querySelector('.main__laser');
 const laserTarget = document.querySelector('.laser__target');
@@ -121,10 +145,3 @@ axios.get(apiUrl).then((res) => {
     inpUsd2.value = (inpUah2.value / usd).toFixed(2);
   }
 });
-
-//calculations
-const debtPercent = 15;
-const firstPayment = (200 / 27.75).toFixed(2);
-const firstCoef = (debtPercent / firstPayment).toFixed(2);
-const scaleWidth =  (3.1 / firstCoef).toFixed(2);
-redSaber.style.width = `${scaleWidth}px`;
