@@ -12,7 +12,10 @@ const laser = document.querySelector('.main__laser');
 const laserTarget = document.querySelector('.laser__target');
 
 const menu = document.querySelector('.main__menu');
-const createMenu = '<ul class="main__menu-list"><li class="main__menu-item"><button class="progress__button">Show Progress</button></li><li class="main__menu-item"><button>Payments List</button></li></ul>'
+const createMenu = '<ul class="main__menu-list"><li class="main__menu-item"><button class="progress__button">Show Progress</button></li><li class="main__menu-item"><button class="payments__button">Payments List</button></li></ul>'
+
+const paymentsList = document.querySelector('.payments');
+const createPaymentList = '<div class="payments__bg"></div><div class="payments__list"><ul class="list"><li class="payments__item"><span>Date - 30.04.2021</span><span>Current course: 1usd = 27.75uah</span><span>Payment: 200uah = 7.21usd = 0.48%</span></li></ul></div>';
 
 passBtn.addEventListener('click', startAnimationAndAudio);
 function startAnimationAndAudio(event) {                        //saber animation and sound + input validation
@@ -76,6 +79,13 @@ function startAnimationAndAudio(event) {                        //saber animatio
         }, 301)
       }, 300)
     }
+
+    const showPayments = document.querySelector('.payments__button'); //payments list create
+    showPayments.addEventListener('click', renderPeyments);
+    function renderPeyments() {
+      paymentsList.style.animation = 'createPaymentList 3s ease';
+      paymentsList.innerHTML = createPaymentList;
+    }
   }
   else {
     passInput.value = '';                                       //input validation
@@ -83,7 +93,7 @@ function startAnimationAndAudio(event) {                        //saber animatio
   }
 }
 
-//exchange section
+// exchange section
 const exchangeForm = document.querySelector('.main__exchange');
 
 const inpUsd = document.querySelector('#usd');

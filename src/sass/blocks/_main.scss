@@ -167,17 +167,45 @@
     }
   }
 
-  &__laser {
-    height: 5px;
-    width: 60px;
-    background-color: rgb(255, 187, 187);
-    border-radius: 25%;
-    box-shadow: 0 0 10px 5px rgb(255, 47, 47);
-    position: absolute;
-    top: 105vh;
-    left: 101vw;
-    transform: rotate(25deg);
-    z-index: 5;
+  .payments {
+    position: relative;
+    &__bg {
+      width: 40vw;
+      height: 100px;
+      margin-left: 5vw;
+      margin-top: 20px;
+      border-radius: 5px;
+      background-image: url(../img/star_sky.jpg);
+      opacity: 0.5;
+    }
+    &__list {
+      position: absolute;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 40vw;
+      height: 100px;
+      margin-left: 5vw;
+      top: 0;
+    }
+    .list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform-origin: 50% 100%;
+      list-style-type: none;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+    &__item {
+      font-size: 18px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      color: #FFFA52;
+      margin-bottom: 20px;
+      transform: perspective(300px) rotateX(45deg);
+      cursor: pointer;
+    }
   }
 
   &__exchange {
@@ -209,5 +237,18 @@
     #usd, #uah2 {
       margin-right: 30px;
     }
+  }
+
+  &__laser {
+    height: 5px;
+    width: 60px;
+    background-color: rgb(255, 187, 187);
+    border-radius: 25%;
+    box-shadow: 0 0 10px 5px rgb(255, 47, 47);
+    position: absolute;
+    top: 105vh;
+    left: 101vw;
+    transform: rotate(25deg);
+    z-index: 5;
   }
 }
