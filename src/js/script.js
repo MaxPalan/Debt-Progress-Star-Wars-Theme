@@ -1,4 +1,4 @@
-//calculations and scale width
+//data, calculations and scale width
 const redSaber = document.querySelector('.main__progress-scale');
 
 const regularData = {
@@ -9,20 +9,35 @@ const regularData = {
 const payments = [
   {
     name: 'first',
-    payment() { return (200 / 27.75).toFixed(2) },
+    date: '30.04.2021',
+    paymentUah: 200,
+    currentCourse: 27.75,
+    payment() { return (this.paymentUah / this.currentCourse).toFixed(2) },
     coef() { return (regularData.debtPercent / this.payment()).toFixed(2) },
+    percent() { return (1 / this.coef()).toFixed(2) },
     width() { return (regularData.widhPercent / this.coef()).toFixed(2) }
   },
 ]
 
 let scaleWidth = [];
 payments.forEach((p) => { scaleWidth.push( Number(p.width()) ) });
-
 const scale = scaleWidth.reduce((acc, curr) => {
   return acc + curr;
 });
 
 redSaber.style.width = `${scale}px`;
+
+let totalUsd = [];
+payments.forEach((p) => { totalUsd.push( Number(p.payment()) ) });
+const total = totalUsd.reduce((acc, curr) => {
+  return (acc + curr).toFixed(2);
+});
+
+let totalPercent = [];
+payments.forEach((p) => { totalPercent.push( Number(p.percent()) ) });
+const percent = totalPercent.reduce((acc, curr) => {
+  return acc + curr;
+});
 
 // password section
 const password = '123';
@@ -35,12 +50,20 @@ const blueSaber = document.querySelector('.main__progress-blue');
 const laser = document.querySelector('.main__laser');
 const laserTarget = document.querySelector('.laser__target');
 
+//menu render
 const menu = document.querySelector('.main__menu');
 const createMenu = '<ul class="main__menu-list"><li class="main__menu-item"><button class="progress__button">Show Progress</button></li><li class="main__menu-item"><button class="payments__button">Payments List</button></li></ul>'
 
+//payments list render
 const paymentsList = document.querySelector('.payments');
-const createPaymentList = '<div class="payments__bg"></div><div class="payments__list"><ul class="list"><li class="payments__item"><span>Date - 30.04.2021</span><span>Current course: 1usd = 27.75uah</span><span>Payment: 200uah = 7.21usd = 0.48%</span></li></ul></div>';
 
+const ls = document.createElement('div');
+ls.innerHTML = `<div class="payments__bg"></div><div class="payments__list"><ul class="list"></ul></div><h3 class="payments__total"><span>Total progress: ${total}usd / ${percent}</span>%</h3>`
+
+const li = document.createElement('li');
+payments.forEach((p) => { li.innerHTML += `<li class="payments__item"><span>Date - ${p.date}</span><span>Current course: 1usd = ${p.currentCourse}uah</span><span>Payment: ${p.paymentUah}uah = ${p.payment()}usd = ${p.percent()}%</span></li>` });
+
+//functionality
 passBtn.addEventListener('click', startAnimationAndAudio);
 function startAnimationAndAudio(event) {                        //saber animation and sound + input validation
   event.preventDefault();
@@ -107,8 +130,10 @@ function startAnimationAndAudio(event) {                        //saber animatio
     const showPayments = document.querySelector('.payments__button'); //payments list create
     showPayments.addEventListener('click', renderPeyments);
     function renderPeyments() {
+      paymentsList.append(ls);
       paymentsList.style.animation = 'createPaymentList 3s ease';
-      paymentsList.innerHTML = createPaymentList;
+      const listBody = document.querySelector('.list');
+      payments.forEach(() => { listBody.append(li) })
     }
   }
   else {

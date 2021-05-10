@@ -80,9 +80,10 @@
     }
     &-saber {
       position: relative;
+      margin-top: 10px;
     }
     &-img {
-      margin-left: 40px;
+      margin-left: 35px;
       margin-top: -80px;
       width: 400px;
       height: 200px;
@@ -91,7 +92,7 @@
     }
     &-black {
       position: relative;
-      margin-left: 112px;
+      margin-left: 107px;
       margin-top: -101px;
       width: 310px;
       height: 7px;
@@ -113,7 +114,7 @@
       }
     }
     &-blue {
-      margin-left: 112px;
+      margin-left: 107px;
       margin-top: -8px;
       display: none;
       width: 310px;
@@ -126,7 +127,7 @@
       animation-direction: reverse;
     }
     &-scale {
-      margin-left: 112px;
+      margin-left: 107px;
       margin-top: -7px;
       display: none;
       position: relative;
@@ -212,12 +213,24 @@
       transform: perspective(300px) rotateX(45deg);
       cursor: pointer;
     }
+    &__total {
+      text-align: center;
+      width: 40vw;
+      margin-left: 5vw;
+      color: #FFFA52;
+      letter-spacing: 2px;
+      span {
+        font-family: Star Jedi;
+      }
+    }
   }
 
   &__exchange {
-    position: absolute;
-    bottom: 50px;
-    left: 175px;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    &-form {
     display: grid;
     grid-template: 1fr 1fr  / 60px 1fr 60px 1fr;
     row-gap: 5px;
@@ -242,6 +255,7 @@
     }
     #usd, #uah2 {
       margin-right: 30px;
+    }
     }
   }
 
