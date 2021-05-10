@@ -67,33 +67,37 @@
   &__progress {
     width: 50vw;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
     position: relative;
     &-title {
+      text-align: center;
       color: black;
       font-size: 25px;
       font-family: Star Jedi;
       text-shadow: 0 0 13px white;
     }
+    &-saber {
+      position: relative;
+    }
     &-img {
-      position: absolute;
-      top: -30px;
-      left: 175px;
+      margin-left: 40px;
+      margin-top: -80px;
       width: 400px;
       height: 200px;
       transform: rotate(25.5deg);
       z-index: 0;
     }
     &-black {
+      position: relative;
+      margin-left: 112px;
+      margin-top: -101px;
       width: 310px;
       height: 7px;
       background-color: black;
       box-shadow: 0 0 20px 20px black;
-      position: absolute;
       z-index: 1;
-      top: 69px;
-      left: 248px;
       border-radius: 25%;
       .laser__target {
         position: absolute;
@@ -109,26 +113,27 @@
       }
     }
     &-blue {
+      margin-left: 112px;
+      margin-top: -8px;
       display: none;
       width: 310px;
       height: 7px;
       background-color: white;
-      position: absolute;
+      position: relative;
       z-index: 2;
-      top: 69px;
-      left: 248px;
       border-radius: 25%;
       border-left: none;
       animation-direction: reverse;
     }
     &-scale {
+      margin-left: 112px;
+      margin-top: -7px;
       display: none;
-      position: absolute;
-      left: 248px;
-      top: 69px;
+      position: relative;
       height: 7px;
       border-radius: 25%;
       z-index: 4;
+      background-color: #fff;
     }
   }
 
@@ -169,6 +174,7 @@
 
   .payments {
     position: relative;
+    margin-top: -30px;
     &__bg {
       width: 40vw;
       height: 100px;
