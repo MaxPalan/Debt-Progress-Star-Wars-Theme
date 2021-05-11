@@ -67,7 +67,7 @@ payments.forEach((p) => { li.innerHTML += `<li class="payments__item"><span>Date
 passBtn.addEventListener('click', startAnimationAndAudio);
 function startAnimationAndAudio(event) {                        //saber animation and sound + input validation
   event.preventDefault();
-  if (passInput.value === password && document.readyState === 'complete') {
+  if (passInput.value.toLowerCase() === password && document.readyState === 'complete') {
     passInput.value = '';
     passInput.placeholder = '';
 
@@ -133,7 +133,7 @@ function startAnimationAndAudio(event) {                        //saber animatio
         }
         if (mediaQuery3.matches) {
           laser.animate([
-            { top: '70vh', left: '101vw' },
+            { top: '40vh', left: '101vw' },
             { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
           ], {
             duration: 150,
@@ -166,7 +166,7 @@ function startAnimationAndAudio(event) {                        //saber animatio
         if (mediaQuery2.matches) {
           laser.animate([
             { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x}px` },
-            { top: '70vh', left: '-1vw' }
+            { top: '40vh', left: '-1vw' }
           ], {
             duration: 100,
             iterations: 1
