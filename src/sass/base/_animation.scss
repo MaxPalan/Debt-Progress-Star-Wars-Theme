@@ -16,9 +16,17 @@
 }
 
 // saber animation
-@keyframes swordon {
+@keyframes swordon1 {
   from {width: 0px;}
   to {width: 310px;}
+}
+@keyframes swordon2 {
+  from {width: 0px;}
+  to {width: 233px;}
+}
+@keyframes swordon3 {
+  from {width: 0px;}
+  to {width: 195px;}
 }
 @keyframes blueSaberBlink {
   from {box-shadow: 0 0 16px 13px rgb(72, 72, 255);}

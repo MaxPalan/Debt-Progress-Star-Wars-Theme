@@ -74,10 +74,27 @@ function startAnimationAndAudio(event) {                        //saber animatio
     const saberOn = new Audio('audio/lightsaberOn.wav');        //saber sound for turning on
     saberOn.play();
 
-    setTimeout(function() {                                     //blue saber animation start
-      blueSaber.style.display = 'block';
-      blueSaber.style.animation = 'swordon 0.9s ease, blueSaberBlink 0.05s infinite ease';
-    }, 600)
+    const mediaQuery1 = window.matchMedia('(min-width: 992px)');//blue saber animation start + meidia queryes
+    const mediaQuery2 = window.matchMedia('(max-width: 991px)');
+    const mediaQuery3 = window.matchMedia('(max-width: 767px)');
+    if (mediaQuery1.matches) {
+      setTimeout(function() {                                     
+        blueSaber.style.display = 'block';
+        blueSaber.style.animation = 'swordon1 0.9s ease, blueSaberBlink 0.05s infinite ease';
+      }, 600)
+    }
+    if (mediaQuery2.matches) {
+      setTimeout(function() {                                     
+        blueSaber.style.display = 'block';
+        blueSaber.style.animation = 'swordon2 0.9s ease, blueSaberBlink 0.05s infinite ease';
+      }, 600)
+    }
+    if (mediaQuery3.matches) {
+      setTimeout(function() {                                     
+        blueSaber.style.display = 'block';
+        blueSaber.style.animation = 'swordon3 0.9s ease, blueSaberBlink 0.05s infinite ease';
+      }, 600)
+    }
 
     const saberWorking = new Audio('audio/lightsaberWork.wav'); //sound of saber work
     setTimeout(function() {
@@ -96,14 +113,34 @@ function startAnimationAndAudio(event) {                        //saber animatio
       laserTarget.click();
 
       function targetLocated() {                                    //laser shot animation
-        laser.animate([
-          { top: '105vh', left: '101vw' },
-          { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
-        ], {
-          duration: 250,
-          iterations: 1
-        })
-      
+        if (mediaQuery1.matches) {
+          laser.animate([
+            { top: '105vh', left: '101vw' },
+            { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
+          ], {
+            duration: 250,
+            iterations: 1
+          });
+        }
+        if (mediaQuery2.matches) {
+          laser.animate([
+            { top: '80vh', left: '101vw' },
+            { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
+          ], {
+            duration: 200,
+            iterations: 1
+          });
+        }
+        if (mediaQuery3.matches) {
+          laser.animate([
+            { top: '70vh', left: '101vw' },
+            { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x + 45}px` }
+          ], {
+            duration: 150,
+            iterations: 1
+          });
+        }
+        
         laserShot.play();
         laserTarget.style.animation = 'target 0.2s ease 0.2s';
         setTimeout(function() {
@@ -113,17 +150,33 @@ function startAnimationAndAudio(event) {                        //saber animatio
       }
       setTimeout(function shotAnimation() {
         laserTarget.style.animation = '';
-        laser.animate([
-          { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x}px` },
-          { top: '55vh', left: '-1vw' }
-        ], {
-          duration: 150,
-          iterations: 1
-        });
-        laser.style.transform = 'rotate(-25deg)';
-        setTimeout(function() {
-          laser.style.transform = 'rotate(25deg)';
-        }, 301)
+        if (mediaQuery1.matches) {
+          laser.animate([
+            { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x}px` },
+            { top: '60vh', left: '-1vw' }
+          ], {
+            duration: 150,
+            iterations: 1
+          });
+          laser.style.transform = 'rotate(-25deg)';
+          setTimeout(function() {
+            laser.style.transform = 'rotate(25deg)';
+          }, 301);
+        }
+        if (mediaQuery2.matches) {
+          laser.animate([
+            { top: `${laserTarget.getBoundingClientRect().y + 10}px`, left: `${laserTarget.getBoundingClientRect().x}px` },
+            { top: '70vh', left: '-1vw' }
+          ], {
+            duration: 100,
+            iterations: 1
+          });
+          laser.style.transform = 'rotate(-25deg)';
+          setTimeout(function() {
+            laser.style.transform = 'rotate(25deg)';
+          }, 301);
+        }
+        
       }, 300)
     }
 

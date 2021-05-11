@@ -1,0 +1,178 @@
+@media (max-width: 1200px) {
+  .main {
+    overflow-y: visible;
+  }
+}
+@media (max-width: 991px) {
+  .main {
+    &__header {
+      font-size: 33px;
+    }
+    &__enter {
+      &-inp {
+        width: 41%;
+        font-size: 18px;
+      }
+      &-btn {
+        width: 41%;
+        line-height: 20px;
+      }
+    }
+    &__progress {
+      &-title {
+        font-size: 23px;
+      }
+      &-img {
+        width: 300px;
+        height: 151px;
+        margin-left: 30px;
+        margin-top: -70px;
+      }
+      &-black {
+        margin-left: 85px;
+        margin-top: -76.5px;
+        width: 233px;
+        box-shadow: 0 0 15px 15px black;
+        height: 6px;
+      }
+      &-blue {
+        margin-top: -6px;
+        margin-left: 84px;
+        width: 233px;
+        height: 6px;
+      }
+      &-scale {
+        margin-top: -6px;
+        margin-left: 84px;
+        height: 6px;
+      }
+    }
+    &__menu {
+      margin-top: 30px;
+    }
+    .payments {
+      &__item {
+        font-size: 16px;
+        padding-left: 0px;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    &__exchange {
+      margin-top: 25px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    &__header {
+      font-size: 25px;
+    }
+    &__enter {
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      &-btn {
+        margin-top: 5px;
+        margin-left: 0;
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+    &__progress {
+      &-img {
+        width: 250px;
+        height: 125px;
+        margin-top: -60px;
+        margin-left: 23px;
+      }
+      &-black {
+        margin-left: 68px;
+        margin-top: -64px;
+        width: 195px;
+        box-shadow: 0 0 13px 13px black;
+        .laser__target {
+          left: 0;
+        }
+      }
+      &-blue {
+        margin-top: -6px;
+        margin-left: 67px;
+        width: 195px;
+      }
+      &-scale {
+        margin-top: -6px;
+        margin-left: 67px;
+      }
+    }
+    &__menu {
+      &-item {
+        button {
+          font-size: 15px;
+        }
+      }
+    }
+    .payments {
+      &__item {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+    }
+    &__exchange {
+      &-form {
+        grid-template: 1fr 1fr/50px 1fr 50px 1fr;
+        input {
+          width: 80px;
+          font-size: 17px;
+        }
+        label {
+          font-size: 17px;
+        }
+        #usd, #uah2 {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .main {
+    &__header {
+      width: 100%;
+    }
+    &__enter {
+      width: 100%;
+    }
+    &__progress {
+      width: 100%;
+    }
+    &__menu {
+      width: 100%;
+    }
+    .payments {
+      &__bg {
+        width: 90%;
+      }
+      &__list {
+         width: 90%;
+      }
+      &__item {
+        margin-bottom: 0;
+        margin-top: 20px;
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+      &__total {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+    &__exchange {
+      width: 100%;
+    }
+  }
+}
