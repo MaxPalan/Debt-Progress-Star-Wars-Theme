@@ -30,7 +30,7 @@ redSaber.style.width = `${scale}px`;
 let totalUsd = [];
 payments.forEach((p) => { totalUsd.push( Number(p.payment()) ) });
 const total = totalUsd.reduce((acc, curr) => {
-  return (acc + curr).toFixed(2);
+  return acc + curr;
 });
 
 let totalPercent = [];
@@ -58,7 +58,7 @@ const createMenu = '<ul class="main__menu-list"><li class="main__menu-item"><but
 const paymentsList = document.querySelector('.payments');
 
 const ls = document.createElement('div');
-ls.innerHTML = `<div class="payments__bg"></div><div class="payments__list"><ul class="list"></ul></div><h3 class="payments__total"><span>Total progress: ${total}usd / ${percent}</span>%</h3>`
+ls.innerHTML = `<div class="payments__bg"></div><div class="payments__list"><ul class="list"></ul></div><h3 class="payments__total">Total progress: ${total.toFixed(2)}usd / ${percent.toFixed(2)}<span>%</span></h3>`
 
 const li = document.createElement('li');
 payments.forEach((p) => { li.innerHTML += `<li class="payments__item"><span>Date - ${p.date}</span><span>Current course: 1usd = ${p.currentCourse}uah</span><span>Payment: ${p.paymentUah}uah = ${p.payment()}usd = ${p.percent()}%</span></li>` });
@@ -133,7 +133,7 @@ function startAnimationAndAudio(event) {                        //saber animatio
       paymentsList.append(ls);
       paymentsList.style.animation = 'createPaymentList 3s ease';
       const listBody = document.querySelector('.list');
-      payments.forEach(() => { listBody.append(li) })
+      payments.forEach(() => { listBody.append(li) });
     }
   }
   else {

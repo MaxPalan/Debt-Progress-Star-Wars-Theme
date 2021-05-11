@@ -141,7 +141,7 @@
   &__menu {
     position: relative;
     width: 50vw;
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     &-list {
@@ -175,7 +175,7 @@
 
   .payments {
     position: relative;
-    margin-top: -30px;
+    margin-top: -20px;
     &__bg {
       width: 40vw;
       height: 100px;
@@ -193,6 +193,9 @@
       height: 100px;
       margin-left: 5vw;
       top: 0;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
     }
     .list {
       display: flex;
@@ -204,23 +207,30 @@
       padding-bottom: 20px;
     }
     &__item {
+      font-family: Roboto;
       font-size: 18px;
       padding-left: 20px;
       display: flex;
       flex-direction: column;
       color: #FFFA52;
       margin-bottom: 20px;
-      transform: perspective(300px) rotateX(45deg);
+      transform: perspective(200px) rotateX(45deg);
       cursor: pointer;
+      transition: 1s;
+      &:hover {
+        transform: perspective(0px) rotateX(0deg);
+        transform: scale(1.3);
+      }
     }
     &__total {
+      font-family: Star Jedi;
       text-align: center;
       width: 40vw;
       margin-left: 5vw;
       color: #FFFA52;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       span {
-        font-family: Star Jedi;
+        font-family: Roboto;
       }
     }
   }
