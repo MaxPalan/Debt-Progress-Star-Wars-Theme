@@ -40,7 +40,7 @@ const percent = totalPercent.reduce((acc, curr) => {
 });
 
 // password section
-const password = '123';
+const password = 'hello polanko';
 
 const passInput = document.querySelector('.main__enter-inp');
 const passBtn = document.querySelector('.main__enter-btn');

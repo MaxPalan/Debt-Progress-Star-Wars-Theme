@@ -221,10 +221,6 @@
         transform: perspective(0px) rotateX(0deg);
         transform: scale(1.3);
       }
-      &:visited {
-        transform: perspective(0px) rotateX(0deg);
-        transform: scale(1.3);
-      }
     }
     &__total {
       font-family: Star Jedi;
@@ -243,7 +239,7 @@
     width: 50vw;
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 20px;
     &-form {
     display: grid;
