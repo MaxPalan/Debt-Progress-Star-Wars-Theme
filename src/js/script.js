@@ -17,6 +17,16 @@ const payments = [
     percent() { return (1 / this.coef()).toFixed(2) },
     width() { return (regularData.widhPercent / this.coef()).toFixed(2) }
   },
+  {
+    name: 'second',
+    date: '13.06.2021',
+    paymentUah: 200,
+    currentCourse: 26.75,
+    payment() { return (this.paymentUah / this.currentCourse).toFixed(2) },
+    coef() { return (regularData.debtPercent / this.payment()).toFixed(2) },
+    percent() { return (1 / this.coef()).toFixed(2) },
+    width() { return (regularData.widhPercent / this.coef()).toFixed(2) }
+  },
 ]
 
 let scaleWidth = [];

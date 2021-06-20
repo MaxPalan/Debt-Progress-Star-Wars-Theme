@@ -242,31 +242,38 @@
     margin-top: 50px;
     margin-bottom: 20px;
     &-form {
-    display: grid;
-    grid-template: 1fr 1fr  / 60px 1fr 60px 1fr;
-    row-gap: 5px;
-    label {
-      font-family: Star Jedi;
-      color: black;
-      font-size: 20px;
-      text-shadow: 0 0 4px white;
-    }
-    input {
-      width: 86px;
-      border-radius: 5px;
-      background-color: black;
-      outline: none;
-      padding: 1px 0px 5px 4px;
-      font-size: 20px;
-      font-family: Star Jedi;
-      color: white;
-      border: none;
-      box-shadow: 0 0 4px white;
-      letter-spacing: 2px;
-    }
-    #usd, #uah2 {
-      margin-right: 30px;
-    }
+      display: grid;
+      grid-template: 1fr 1fr  / 60px 1fr 60px 1fr;
+      row-gap: 5px;
+      label {
+        font-family: Star Jedi;
+        color: black;
+        font-size: 20px;
+        text-shadow: 0 0 4px white;
+      }
+      input {
+        width: 86px;
+        border-radius: 5px;
+        background-color: black;
+        outline: none;
+        padding: 1px 0px 5px 4px;
+        font-size: 20px;
+        font-family: Star Jedi;
+        color: white;
+        border: none;
+        box-shadow: 0 0 4px white;
+        letter-spacing: 2px;
+      }
+      #usd, #uah2 {
+        margin-right: 30px;
+        position: relative;
+        z-index: 2;
+        &::-webkit-outer-spin-button, 
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
     }
   }
 
